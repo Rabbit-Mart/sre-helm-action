@@ -7,7 +7,8 @@ ENV HELM_3_FILE="helm-v3.4.2-linux-amd64.tar.gz"
 
 
 RUN apk add py-pip curl wget ca-certificates git bash jq gcc alpine-sdk
-RUN pip install 'awscli==2.4.25'
+RUN pip install 'awscli'
+RUN aws --version
 
 RUN apk add --no-cache ca-certificates \
     --repository http://dl-3.alpinelinux.org/alpine/edge/community/ \
