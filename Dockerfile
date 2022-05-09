@@ -5,10 +5,17 @@ ENV BASE_URL="https://get.helm.sh"
 ENV HELM_2_FILE="helm-v2.17.0-linux-amd64.tar.gz"
 ENV HELM_3_FILE="helm-v3.4.2-linux-amd64.tar.gz"
 
-RUN apk update && apk upgrade
-RUN apk add py-pip curl wget ca-certificates git bash jq gcc alpine-sdk
-RUN pip install 'awscli==2.6.1'
+# RUN apk update && apk upgrade
+# RUN apk add py-pip curl wget ca-certificates git bash jq gcc alpine-sdk
+# RUN pip install 'awscli==2.6.1'
 
+
+ENV AWS_CLI_VER=2.0.30
+
+RUN apk update && apk add --no-cache curl gcompat zip &&  \
+    curl -s https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${AWS_CLI_VER}.zip -o awscliv2.zip && \
+    unzip awscliv2.zip && ./aws/install
+RUN aws --version
 RUN apk add --no-cache ca-certificates \
     --repository http://dl-3.alpinelinux.org/alpine/edge/community/ \
     jq curl bash nodejs aws-cli && \
