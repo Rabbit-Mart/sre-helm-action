@@ -210,7 +210,7 @@ async function run() {
 
     if (dryRun) args.push("--dry-run");
     if (appName) args.push(`--set=app.name=${appName}`);
-    if (version) args.push(`--set=app.version=${version}`);
+    if (version) args.push(`--app-version=${version}`);
     if (chartVersion) args.push(`--version=${chartVersion}`);
     if (timeout) args.push(`--timeout=${timeout}`);
     if (repository) args.push(`--repo=${repository}`);
