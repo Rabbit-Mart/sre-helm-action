@@ -235,7 +235,7 @@ async function run() {
 //       await writeFile(process.env.KUBECONFIG, process.env.KUBECONFIG_FILE);
 //     }
     
-    process.env.KUBECONFIG = "./kubeconfig.yml";
+    process.env.KUBECONFIG = "/github/workspace/kubeconfig.yml";
     
     await writeFile("./values.yml", values);
 
