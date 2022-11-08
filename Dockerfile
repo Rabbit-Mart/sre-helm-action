@@ -28,11 +28,13 @@ RUN apk upgrade --update-cache --available && \
     apk add curl python3 py-crcmod bash libc6-compat && \
     rm -rf /var/cache/apk/*
 RUN curl https://sdk.cloud.google.com | bash > /dev/null
-RUN    export PATH=$PATH:/root/google-cloud-sdk/bin
+RUN export PATH=$PATH:/root/google-cloud-sdk/bin
 #gcloud components update kubectl
 
 RUN mkdir -p /opt/hostedtoolcache/gcloud/408.0.1/x64/bin
-RUN ln -s /root/google-cloud-sdk/bin /opt/hostedtoolcache/gcloud/408.0.1/x64/bin
+           
+#RUN ln -s /root/google-cloud-sdk/bin /opt/hostedtoolcache/gcloud/408.0.1/x64/bin
+RUN cp -r /root/google-cloud-sdk/* /opt/hostedtoolcache/gcloud/408.0.1/x64/
 ENV PATH $PATH:/root/google-cloud-sdk/bin
 
 
