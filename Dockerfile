@@ -30,6 +30,9 @@ RUN apk upgrade --update-cache --available && \
 RUN curl https://sdk.cloud.google.com | bash > /dev/null
 RUN    export PATH=$PATH:/root/google-cloud-sdk/bin
 #gcloud components update kubectl
+
+
+RUN ln -s /root/google-cloud-sdk/bin /opt/hostedtoolcache/gcloud/408.0.1/x64/bin
 ENV PATH $PATH:/root/google-cloud-sdk/bin
 
 
