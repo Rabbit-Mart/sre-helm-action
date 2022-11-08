@@ -12,7 +12,7 @@ ENV HELM_3_FILE="helm-v3.4.2-linux-amd64.tar.gz"
 
 ENV AWS_CLI_VER=2.0.30
 
-RUN apk update && apk add --no-cache curl gcompat zip &&  \
+RUN apk update && apk add --no-cache curl gcompat zip bash&&  \
     curl -s https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${AWS_CLI_VER}.zip -o awscliv2.zip && \
     unzip awscliv2.zip && ./aws/install
     
