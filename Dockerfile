@@ -23,15 +23,13 @@ RUN apk update && apk add --no-cache curl gcompat zip bash which&&  \
 ############
 ############
 # Downloading gcloud package
-RUN curl https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz > /tmp/google-cloud-sdk.tar.gz
-
-# Installing the package
-RUN mkdir -p /usr/local/gcloud \
-  && tar -C /usr/local/gcloud -xvf /tmp/google-cloud-sdk.tar.gz \
-  && /usr/local/gcloud/google-cloud-sdk/install.sh
-
-# Adding the package path to local
-ENV PATH $PATH:/usr/local/gcloud/google-cloud-sdk/bin
+apk upgrade --update-cache --available && \
+apk add openssl && \
+apk add curl python3 py-crcmod bash libc6-compat && \
+rm -rf /var/cache/apk/*
+curl https://sdk.cloud.google.com | bash > /dev/null
+export PATH=$PATH:/root/google-cloud-sdk/bin
+#gcloud components update kubectl
 
 ############
 ############
