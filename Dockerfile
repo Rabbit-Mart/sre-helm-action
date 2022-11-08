@@ -23,13 +23,15 @@ RUN apk update && apk add --no-cache curl gcompat zip bash which&&  \
 ############
 ############
 # Downloading gcloud package
-apk upgrade --update-cache --available && \
-apk add openssl && \
-apk add curl python3 py-crcmod bash libc6-compat && \
-rm -rf /var/cache/apk/*
-curl https://sdk.cloud.google.com | bash > /dev/null
-export PATH=$PATH:/root/google-cloud-sdk/bin
+RUN apk upgrade --update-cache --available && \
+    apk add openssl && \
+    apk add curl python3 py-crcmod bash libc6-compat && \
+    rm -rf /var/cache/apk/*
+RUN curl https://sdk.cloud.google.com | bash > /dev/null
+RUN    export PATH=$PATH:/root/google-cloud-sdk/bin
 #gcloud components update kubectl
+ENV PATH $PATH:/root/google-cloud-sdk/bin
+
 
 ############
 ############
