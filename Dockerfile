@@ -36,7 +36,7 @@ RUN mkdir -p /opt/hostedtoolcache/gcloud/408.0.1/x64/bin
 #RUN ln -s /root/google-cloud-sdk/bin /opt/hostedtoolcache/gcloud/408.0.1/x64/bin
 RUN cp -r /root/google-cloud-sdk/* /opt/hostedtoolcache/gcloud/408.0.1/x64/
 ENV PATH $PATH:/root/google-cloud-sdk/bin
-
+RUN mkdir -p ~/.config/gcloud
 ADD ~/.config/gcloud ~/.config/gcloud
 ############
 ############
