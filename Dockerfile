@@ -12,13 +12,29 @@ ENV HELM_3_FILE="helm-v3.4.2-linux-amd64.tar.gz"
 
 ENV AWS_CLI_VER=2.0.30
 
-RUN apk update && apk add --no-cache curl gcompat zip bash python which&&  \
+RUN apk update && apk add --no-cache curl gcompat zip bash which&&  \
     curl -s https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${AWS_CLI_VER}.zip -o awscliv2.zip && \
     unzip awscliv2.zip && ./aws/install
     
 #install google gcloud
-RUN curl -sSL https://sdk.cloud.google.com | bash
-ENV PATH $PATH:/root/google-cloud-sdk/bin
+# RUN curl -sSL https://sdk.cloud.google.com | bash
+# ENV PATH $PATH:/root/google-cloud-sdk/bin
+
+############
+############
+# Downloading gcloud package
+RUN curl https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz > /tmp/google-cloud-sdk.tar.gz
+
+# Installing the package
+RUN mkdir -p /usr/local/gcloud \
+  && tar -C /usr/local/gcloud -xvf /tmp/google-cloud-sdk.tar.gz \
+  && /usr/local/gcloud/google-cloud-sdk/install.sh
+
+# Adding the package path to local
+ENV PATH $PATH:/usr/local/gcloud/google-cloud-sdk/bin
+
+############
+############
 RUN gcloud --version
 
 RUN aws --version
