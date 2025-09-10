@@ -47,5 +47,5 @@ inputs:
     required: false
 runs:
   using: docker
-  # image: Dockerfile
-  image: ghcr.io/rabbit-mart/sre-helm-action:latest
+  image: Dockerfile
+  # image: ghcr.io/rabbit-mart/sre-helm-action:latest
