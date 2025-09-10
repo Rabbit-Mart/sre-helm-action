@@ -1,4 +1,4 @@
-FROM ghcr.io/rabbit-mart/alpine:3.15
+FROM ghcr.io/rabbit-mart/alpine:3.15-amd64
 
 ENV BASE_URL="https://get.helm.sh"
 
