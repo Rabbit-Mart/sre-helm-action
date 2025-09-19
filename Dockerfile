@@ -1,6 +1,6 @@
 # FROM alpine:3.15
-# FROM ghcr.io/rabbit-mart/alpine:3.15-amd64
-FROM 798810847517.dkr.ecr.eu-west-1.amazonaws.com/rabbitmart-stg/sre-helm-action:alpine-3.15-amd64
+FROM ghcr.io/rabbit-mart/alpine:3.15-amd64
+# FROM 798810847517.dkr.ecr.eu-west-1.amazonaws.com/rabbitmart-stg/sre-helm-action:alpine-3.15-amd64
 
 ENV BASE_URL="https://get.helm.sh"
 
