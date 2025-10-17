@@ -49,4 +49,5 @@ runs:
   using: docker
   # image: Dockerfile
   # image: ghcr.io/rabbit-mart/sre-helm-action:latest
-  image: rbtdevops/sre-helm-action:latest
+  # image: rbtdevops/sre-helm-action:latest
+  image: docker://rbtdevops/sre-helm-action:latest
