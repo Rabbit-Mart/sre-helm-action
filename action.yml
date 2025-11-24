@@ -47,8 +47,8 @@ inputs:
     required: false
 runs:
   using: docker
-  # image: Dockerfile
-  image: docker://rbtdevops/sre-helm-action:latest
+  image: Dockerfile
+  # image: docker://rbtdevops/sre-helm-action:latest
 
   ## TODO: Moving the image to GHCR to avoid DockerHub rate limit issue if it persists 
   # image: ghcr.io/rabbit-mart/sre-helm-action:latest
